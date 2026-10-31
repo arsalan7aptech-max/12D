@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import {ToastContainer, Zoom } from 'react-toastify'
+import { Analytics } from "@vercel/analytics/next"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -22,6 +23,7 @@ pauseOnHover
 theme="colored"
 transition={Zoom}
 />
+<Analytics/>
     <App />
     </BrowserRouter>
   </StrictMode>
