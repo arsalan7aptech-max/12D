@@ -1,7 +1,7 @@
 import React from 'react'
 import Home from "./pages/Home"
 import { TooltipProvider } from "@/components/ui/tooltip"
-import Dashboard from './pages/dashboard/dashboard'
+import Dashboard from './pages/dashboard/Dashboard'
 import { Routes, Route } from "react-router";
 import DashboardLayout from './layout/DashboardLayout';
 import Counter from './pages/dashboard/Counter';
