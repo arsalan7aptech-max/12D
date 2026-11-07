@@ -1,0 +1,11 @@
+import mongoose from "mongoose";
+
+
+const UserSchema=new mongoose.Schema({
+    fullname:String,
+    email:String,
+    password:String
+})
+
+
+export default mongoose.model("Users",UserSchema)
