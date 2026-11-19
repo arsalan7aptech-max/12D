@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router";
 import DashboardLayout from './layout/DashboardLayout';
 import Counter from './pages/dashboard/Counter';
 import Signup from './pages/Signup';
+import UserData from './pages/dashboard/UserData';
 const App = () => {
   return (
     <>
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/Dashboard' element={<DashboardLayout/>}>
         <Route index element={<Dashboard/>}/>
         <Route path='counter' element={<Counter/>}/>
+        <Route path='userData' element={<UserData/>}/>
         </Route>
       </Routes>
     {/* <Home/> */}

@@ -39,8 +39,8 @@ const data = {
       ),
     },
     {
-      title: "Analytics",
-      url: "#",
+      title: "userData",
+      url: "/dashboard/userData",
       icon: (
         <ChartBarIcon
         />
