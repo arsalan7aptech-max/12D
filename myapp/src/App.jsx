@@ -7,6 +7,7 @@ import DashboardLayout from './layout/DashboardLayout';
 import Counter from './pages/dashboard/Counter';
 import Signup from './pages/Signup';
 import UserData from './pages/dashboard/UserData';
+import Data from './pages/dashboard/Data';
 const App = () => {
   return (
     <>
@@ -19,6 +20,7 @@ const App = () => {
         <Route index element={<Dashboard/>}/>
         <Route path='counter' element={<Counter/>}/>
         <Route path='userData' element={<UserData/>}/>
+        <Route path='data' element={<Data/>}/>
         </Route>
       </Routes>
     {/* <Home/> */}

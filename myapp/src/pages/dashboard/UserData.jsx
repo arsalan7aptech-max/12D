@@ -11,10 +11,6 @@ const UserData = () => {
 //   .then(data => console.log(data));
 const res=await axios.get("http://localhost:3000/user/get-user")
 setProducts(res.data.allUsers)
-console.log(5)
-
-
-
     }
     useEffect(()=>{
         getuser()

@@ -47,8 +47,8 @@ const data = {
       ),
     },
     {
-      title: "Projects",
-      url: "#",
+      title: "Data",
+      url: "/dashboard/data",
       icon: (
         <FolderIcon
         />
