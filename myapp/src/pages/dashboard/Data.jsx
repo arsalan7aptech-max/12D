@@ -22,7 +22,8 @@ import { Badge } from "@/components/ui/badge"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { toast } from "react-toastify"
-
+import api from "../../api/api"
+import { Eye, EyeOff } from "lucide-react";
 
 
 export default function Data() {
@@ -32,7 +33,13 @@ export default function Data() {
         email:"",
         password:""
     })
+    const [showPassword,setShowPassword]=useState(false)
 
+    const changeshowPassword=()=>{
+    showPassword?setShowPassword(false):setShowPassword(true)
+    console.log(showPassword);
+    
+    }
     const handleRegisterChange=(e)=>{
         setRegisterFormData({
             ...registerFormData,
@@ -40,7 +47,7 @@ export default function Data() {
         })
     }
     const getData=async()=>{
-        const res=await axios.get("http://localhost:3000/user/get-user")
+        const res=await api.get("/user/get-user")
         setUsers(res.data.allUsers)
     }
 
@@ -66,7 +73,7 @@ export default function Data() {
       if(!nameRegex.test(registerFormData.fullname.trim())){
        return toast.error("name should only have alphabets")
       }
-      axios.post("http://localhost:3000/user/register",registerFormData)
+      api.post("/user/register",registerFormData)
       .then((res)=>{
         toast.success("register succesfullly",res)
         getData()
@@ -140,9 +147,30 @@ export default function Data() {
                   <Input id="signup-email" type="email" placeholder="name@example.com"  name="email" value={registerFormData.email} onChange={handleRegisterChange} />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="signup-password">Password</Label>
-                  <Input id="signup-password" type="password" placeholder="••••••••"  name="password" value={registerFormData.password} onChange={handleRegisterChange} />
-                </div>
+  <Label htmlFor="signup-password">Password</Label>
+  <div className="relative">
+    {showPassword?  <Input
+      id="signup-password"
+      type="text"
+      placeholder="••••••••"
+      name="text"
+      value={registerFormData.password}
+      onChange={handleRegisterChange}
+      className="pr-10"
+    />: <Input
+      id="signup-password"
+      type="password"
+      placeholder="••••••••"
+      name="password"
+      value={registerFormData.password}
+      onChange={handleRegisterChange}
+      className="pr-10"
+    /> }
+   
+    {showPassword? <EyeOff className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" onClick={changeshowPassword} />:<Eye className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" onClick={changeshowPassword} />}
+   
+  </div>
+</div>
               </CardContent>
               <CardFooter>
                 <button type="submit" className="w-full">Sign Up</button>
